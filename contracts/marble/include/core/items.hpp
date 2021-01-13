@@ -49,12 +49,13 @@ TABLE item {
     //uint64_t mint; //edition?
 
     uint64_t primary_key() const { return serial; }
-    uint64_t by_group() const { return group.value; }
-    uint64_t by_owner() const { return owner.value; }
+    uint128_t by_group() const { return (uint128_t)10000000000000000 * group.value + serial; }
+    uint128_t by_owner() const { return (uint128_t)10000000000000000 * owner.value + serial; }
 
-    EOSLIB_SERIALIZE(item, (serial)(group)(owner))
+    // EOSLIB_SERIALIZE(item, (serial)(group)(owner))
 };
 typedef multi_index<name("items"), item,
-    indexed_by<"bygroup"_n, const_mem_fun<item, uint64_t, &item::by_group>>,
-    indexed_by<"byowner"_n, const_mem_fun<item, uint64_t, &item::by_owner>>
+    indexed_by<"bygroup"_n, const_mem_fun<item, uint128_t, &item::by_group>>,
+    indexed_by<"byowner"_n, const_mem_fun<item, uint128_t, &item::by_owner>>
 > items_table;
+
