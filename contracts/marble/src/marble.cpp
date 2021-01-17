@@ -8,8 +8,6 @@
 
 //marble layers
 #include "./layers/tags.cpp"
-#include "./layers/attributes.cpp"
 #include "./layers/events.cpp"
-#include "./layers/frames.cpp"
 #include "./layers/bonds.cpp"
 #include "./layers/wallets.cpp"

@@ -46,9 +46,7 @@ CONTRACT marble : public contract
 
     //marble layers
     #include <layers/tags.hpp>
-    #include <layers/attributes.hpp>
     #include <layers/events.hpp>
-    #include <layers/frames.hpp>
     #include <layers/bonds.hpp>
     #include <layers/wallets.hpp>
 
